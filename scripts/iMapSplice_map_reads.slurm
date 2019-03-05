@@ -31,7 +31,7 @@ gunzip -c ${RNAreadsDir}/${filestem}_R2_001.fastq.gz > ${projectDirectory}/${fil
 
 
 singularity exec ${projectDirectory}/iMapSplice.img /iMapSplice/code/bin/iMapSplice-unphased \
--P ${projectDirectory}/snps/dgrp2.snps \
+-P ${projectDirectory}/SNPs/dgrp2.snps \
 -Q ${projectDirectory}/SNPmerIndex/ \
 -G ${projectDirectory}/globalIndex/ \
 -L ${projectDirectory}/localIndex/ \

@@ -24,8 +24,8 @@ singularity exec iMapSplice.img /iMapSplice/code/bin/build2ndLevelIndex ./global
 # Part 2: generate SNP-mers
 singularity exec iMapSplice.img /iMapSplice/code/bin/getSNPmer-unphased \
 "${projectDirectory}"/globalIndex/ \
-"${projectDirectory}"/gaf/${gene_annotation_file_name} \
-"${projectDirectory}"/snps/${snp_file_name} \
+"${projectDirectory}"/geneAnnotationFile/${gene_annotation_file_name} \
+"${projectDirectory}"/SNPs/${snp_file_name} \
 "${projectDirectory}"/SNPmer/ \
 ${snpmer_seq_length} \
 ${max_snpmer_samples} || { echo "getSNPmer-unphased failed"; exit 1 }

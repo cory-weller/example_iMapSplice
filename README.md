@@ -15,7 +15,7 @@ TAGCTAATCGATCGACTGACT
 
 If you have a single reference genome file with multiple sequences, you'll need to split it up. This conversion can be done using the script `splitFastaFiles.sh` within the `scripts` directory. Remove the original multi-sequence file afterwards.
 
-## Prepare a gene annotation file in `/gaf/`
+## Prepare a gene annotation file in `/geneAnnotationFile/`
 The gene annotation file needs to be in a specific format:
 
 | column |           value          |
