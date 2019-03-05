@@ -24,10 +24,10 @@ filestem=$(sed -n ${SLURM_ARRAY_TASK_ID}p ${RNAreadFileStemList})
 echo "working on sample ${filestem}"
 
 gunzip -c ${RNAreadsDir}/${filestem}_R1_001.fastq.gz > ${projectDirectory}/${filestem}_1.fastq || \
-{ echo "couldn't open ${RNAreadsDir}/${filestem}_R1_001.fastq.gz"; exit 1 }
+{ echo "couldn't open ${RNAreadsDir}/${filestem}_R1_001.fastq.gz"; exit 1; }
 
 gunzip -c ${RNAreadsDir}/${filestem}_R2_001.fastq.gz > ${projectDirectory}/${filestem}_2.fastq || \
-{ echo "couldn't open ${RNAreadsDir}/${filestem}_R1_001.fastq.gz"; exit 1 }
+{ echo "couldn't open ${RNAreadsDir}/${filestem}_R1_001.fastq.gz"; exit 1; }
 
 
 singularity exec ${projectDirectory}/iMapSplice.img /iMapSplice/code/bin/iMapSplice-unphased \
@@ -38,7 +38,7 @@ singularity exec ${projectDirectory}/iMapSplice.img /iMapSplice/code/bin/iMapSpl
 -1 ${projectDirectory}/${filestem}_1.fastq \
 -2 ${projectDirectory}/${filestem}_2.fastq \
 -T ${mappingCoresRequest} \
--O ${projectDirectory}/${filestem}/ || { echo "iMapSplice mapping failed"; exit 1 }
+-O ${projectDirectory}/${filestem}/ || { echo "iMapSplice mapping failed"; exit 1; }
 
 echo "cleaning up"
 
