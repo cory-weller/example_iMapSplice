@@ -1,9 +1,9 @@
 # running iMapSplice
 
-After cloning this repository to your own directory... (on Rivanna, /scratch/$USER/ is a good location)
+After cloning this repository to your own directory... (on Rivanna, `/scratch/$USER/` is a good location)
 
 ## Retrieve the pre-compiled Singularity image of iMapSplice
-I've pre-built an executable image using Singularity that can be used to run iMapSplice. You can retrieve it from singularity hub
+I've pre-built an executable image using Singularity to run iMapSplice. You can retrieve it from singularity hub
 
 ```bash
 module load singularity
