@@ -2,6 +2,14 @@
 
 After cloning this repository to your own directory... (on Rivanna, /scratch/$USER/ is a good location)
 
+## Retrieve the pre-compiled Singularity image of iMapSpice
+I've pre-built an executable image using Singularity that can be used to run iMapSplice. You can retrieve it from singularity hub
+
+```bash
+module load singularity
+singularity pull -n iMapSplice.simg shub://cory-weller/iMapSplice.simg
+```
+
 ## Prepare reference genome files in `/reference_genome/`
 The reference genome needs to be split into separate `.fa` files instead of multiple sequences contained in a single file. The name of the file must be identical to the contents of the header line (excluding the `>` character at the start of the header). For example, `chr3.fa` would look like
 

@@ -18,11 +18,11 @@ cd ${projectDirectory}
 module load singularity
 
 # Part 1: generate reference index
-singularity exec iMapSplice.img /iMapSplice/code/bin/buildWholeGenome ./reference_genome/ ./globalIndex/ || { echo "buildWholeGenome failed"; exit 1; }
-singularity exec iMapSplice.img /iMapSplice/code/bin/build2ndLevelIndex ./globalIndex/ ./localIndex/ || { echo "build2ndLevelIndex failed"; exit 1; }
+singularity exec iMapSplice.simg /iMapSplice/code/bin/buildWholeGenome ./reference_genome/ ./globalIndex/ || { echo "buildWholeGenome failed"; exit 1; }
+singularity exec iMapSplice.simg /iMapSplice/code/bin/build2ndLevelIndex ./globalIndex/ ./localIndex/ || { echo "build2ndLevelIndex failed"; exit 1; }
 
 # Part 2: generate SNP-mers
-singularity exec iMapSplice.img /iMapSplice/code/bin/getSNPmer-unphased \
+singularity exec iMapSplice.simg /iMapSplice/code/bin/getSNPmer-unphased \
 "${projectDirectory}"/globalIndex/ \
 "${projectDirectory}"/geneAnnotationFile/${gene_annotation_file_name} \
 "${projectDirectory}"/SNPs/${snp_file_name} \
@@ -31,7 +31,7 @@ ${snpmer_seq_length} \
 ${max_snpmer_samples} || { echo "getSNPmer-unphased failed"; exit 1; }
 
 # Part 3: build SNP-mer Index
-singularity exec iMapSplice.img /iMapSplice/code/bin/buildSNPmerIndex \
+singularity exec iMapSplice.simg /iMapSplice/code/bin/buildSNPmerIndex \
 "${projectDirectory}"/SNPmer/SNPinAnn.fa \
 "${projectDirectory}"/SNPmerIndex || { echo "buildSNPmerIndex failed"; exit 1; }
 

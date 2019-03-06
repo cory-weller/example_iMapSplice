@@ -30,7 +30,7 @@ gunzip -c ${RNAreadsDir}/${filestem}_R2_001.fastq.gz > ${projectDirectory}/${fil
 { echo "couldn't open ${RNAreadsDir}/${filestem}_R1_001.fastq.gz"; exit 1; }
 
 
-singularity exec ${projectDirectory}/iMapSplice.img /iMapSplice/code/bin/iMapSplice-unphased \
+singularity exec ${projectDirectory}/iMapSplice.simg /iMapSplice/code/bin/iMapSplice-unphased \
 -P ${projectDirectory}/SNPs/dgrp2.snps \
 -Q ${projectDirectory}/SNPmerIndex/ \
 -G ${projectDirectory}/globalIndex/ \
