@@ -25,7 +25,6 @@ singularity exec iMapSplice.simg /iMapSplice/code/bin/getSNPmer-unphased \
 ${snpmer_seq_length} \
 ${max_snpmer_samples} || { echo "getSNPmer-unphased failed"; exit 1; }
 
-# Part 3: build SNP-mer Index
 singularity exec iMapSplice.simg /iMapSplice/code/bin/buildSNPmerIndex \
 "${projectDirectory}"/SNPmer/SNPinAnn.fa \
 "${projectDirectory}"/SNPmerIndex || { echo "buildSNPmerIndex failed"; exit 1; }
