@@ -4,6 +4,8 @@ source ./slurm.config
 
 #sbatch --array=1-1%10
 
+# edit the --array argument to run from 1-<n samples>
+# edit the %1 to %5 to run
 sbatch --array=1-1%1 <<EOF
 #!/usr/bin/env bash
 #SBATCH --nodes ${mappingNodesRequest}
@@ -41,8 +43,9 @@ singularity exec ${projectDirectory}/iMapSplice.simg /iMapSplice/code/bin/iMapSp
 -1 ${projectDirectory}/\${filestem}_1.fastq \
 -2 ${projectDirectory}/\${filestem}_2.fastq \
 -T ${mappingCoresRequest} \
--O ${projectDirectory}/\${filestem}/ || { echo "iMapSplice mapping failed"; exit 1; }
+-O ${projectDirectory}/mapped_reads/\${filestem}/ || { echo "iMapSplice mapping failed"; exit 1; }
 
+samtools view -b ${projectDirectory}/mapped_reads/\${filestem}/output.sam > ${projectDirectory}/mapped_reads/\${filestem}.bam && rm -rf ${projectDirectory}/mapped_reads/\${filestem}/
 echo "cleaning up"
 
 rm ${projectDirectory}/\${filestem}_1.fastq
